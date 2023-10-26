@@ -1,3 +1,4 @@
+import 'package:ecommerce_flutter/screen/create_account.dart';
 import 'package:get/get.dart';
 
 import '../screen/login_screen.dart';
@@ -31,12 +32,12 @@ appRoutes() => [
         transitionDuration: Duration(milliseconds: 500),
       ),*/
       GetPage(name: Routes.splashScreen, page: () => SplashScreen()),
-      /*  GetPage(
+        GetPage(
         name: Routes.createAccount,
         page: () => CreateAccount(),
         transition: Transition.leftToRightWithFade,
         transitionDuration: Duration(milliseconds: 500),
-      ),*/
+      ),
       GetPage(
         name: Routes.loginScreen,
         page: () => LoginScreen(),

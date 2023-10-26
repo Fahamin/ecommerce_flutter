@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:ecommerce_flutter/model/auth_model.dart';
-import 'package:ecommerce_flutter/model/login_model.dart';
+import 'package:ecommerce_flutter/model/login/auth_model.dart';
+import 'package:ecommerce_flutter/model/login/login_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 

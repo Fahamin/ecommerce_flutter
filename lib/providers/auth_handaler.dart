@@ -1,4 +1,4 @@
-import 'package:ecommerce_flutter/model/login_model.dart';
+import 'package:ecommerce_flutter/model/login/login_model.dart';
 import 'package:ecommerce_flutter/repository/product_repository.dart';
 import 'package:ecommerce_flutter/route/routes.dart';
 import 'package:flutter/cupertino.dart';
@@ -7,7 +7,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../model/auth_model.dart';
+import '../model/login/auth_model.dart';
 import '../utils/utils.dart';
 
 final authProvider = StateNotifierProvider<AuthNotifier, AuthModel>((ref) {
@@ -47,7 +47,7 @@ class AuthNotifier extends StateNotifier<AuthModel> {
       final SharedPreferences db = await prefs;
       db.setString("uid", response.accessToken.toString());
       print("data is here i am seeing:${state.accessToken}");
-
+      Get.toNamed(Routes.homePage);
       Fluttertoast.showToast(msg: "Login successfully");
     } else {
       Fluttertoast.showToast(msg: "User not found");
