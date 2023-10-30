@@ -1,6 +1,7 @@
 import 'package:ecommerce_flutter/screen/create_account.dart';
 import 'package:get/get.dart';
 
+import '../screen/home_screen.dart';
 import '../screen/login_screen.dart';
 import '../screen/splah_screen.dart';
 
@@ -25,12 +26,12 @@ class Routes {
 }
 
 appRoutes() => [
-      /*  GetPage(
-        name: Routes.androidMainPage,
-        page: () => AndroidMainPage(),
+        GetPage(
+        name: Routes.homePage,
+        page: () => HomeScreen(),
         transition: Transition.leftToRightWithFade,
         transitionDuration: Duration(milliseconds: 500),
-      ),*/
+      ),
       GetPage(name: Routes.splashScreen, page: () => SplashScreen()),
         GetPage(
         name: Routes.createAccount,

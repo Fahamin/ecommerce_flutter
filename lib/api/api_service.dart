@@ -2,7 +2,9 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:ecommerce_flutter/model/login/auth_model.dart';
-import 'package:ecommerce_flutter/model/login/login_model.dart';
+import 'package:ecommerce_flutter/model/login/login_response.dart';
+import 'package:ecommerce_flutter/model/singup/singup_model.dart';
+import 'package:ecommerce_flutter/model/singup/singup_response.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 
@@ -18,23 +20,17 @@ class ApiService {
       return AuthModel.fromJson(response.data);
 
   }
+
+
+  Future<SingupResponse> singUp(Singup singup) async {
+    var response =
+    await Dio().post("${BaseUrl}users", data: singup.toJson());
+
+    debugPrint("fahamin" + response.toString());
+
+    return SingupResponse.fromJson(response.data);
+
+  }
+
 }
 
-dynamic returnResponse(response) {
-  switch (response.statusCode) {
-    case 200:
-      dynamic responseJson = response.data;
-      return responseJson;
-    case 400:
-      throw "400";
-    case 401:
-      throw "401";
-    case 403:
-      throw "403";
-    case 500:
-      throw "500";
-    default:
-      throw 'Error occured while communication with server'
-          ' with status code : ${response.statusCode}';
-  }
-}

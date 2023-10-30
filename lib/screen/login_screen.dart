@@ -1,7 +1,7 @@
 import 'package:d_input/d_input.dart';
 import 'package:d_view/d_view.dart';
-import 'package:ecommerce_flutter/model/login/login_model.dart';
-import 'package:ecommerce_flutter/providers/auth_handaler.dart';
+import 'package:ecommerce_flutter/model/login/login_response.dart';
+import 'package:ecommerce_flutter/providers/signin_handaler.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
