@@ -14,34 +14,37 @@ class ApiService {
   var BaseUrl = "https://api.escuelajs.co/api/v1/";
 
   Future<AuthModel> signin(LoginModel loginModel) async {
-    var response =
-        await Dio().post("${BaseUrl}auth/login", data: loginModel.toJson());
+    var response = await http.post(Uri.parse("${BaseUrl}auth/login"),
+        body: loginModel.toJson());
 
     debugPrint("fahamin" + response.toString());
-
-    return AuthModel.fromJson(response.data);
+    final body = jsonDecode(response.body);
+    return AuthModel.fromJson(body);
   }
 
   Future<SingupResponse> singUp(Singup singup) async {
-    var response = await Dio().post("${BaseUrl}users", data: singup.toJson());
+    var response =
+        await http.post(Uri.parse("${BaseUrl}users"), body: singup.toJson());
 
     debugPrint("fahamin" + response.toString());
+    final body = jsonDecode(response.body);
 
-    return SingupResponse.fromJson(response.data);
+    return SingupResponse.fromJson(body);
   }
 
-  Future<List<ProductModelByCategory>> getProductByCategory(var category) async {
-    var response = await http.get(Uri.parse("${BaseUrl}products/?categoryId=$category"));
+  Future<List<ProductModelByCategory>> getProductByCategory(
+      var category) async {
+    var response =
+        await http.get(Uri.parse("${BaseUrl}products/?categoryId=$category"));
     List<ProductModelByCategory> _list = [];
-    debugPrint("fahamin"+response.toString());
+    debugPrint("fahamin" + response.toString());
 
-      final body = jsonDecode(response.body);
-      debugPrint("fahamin"+body.toString());
-      body.forEach((e) {
-        _list.add(ProductModelByCategory.fromJson(e));
-      });
+    final body = jsonDecode(response.body);
+    debugPrint("fahamin" + body.toString());
+    body.forEach((e) {
+      _list.add(ProductModelByCategory.fromJson(e));
+    });
 
-      return _list;
-
+    return _list;
   }
 }
