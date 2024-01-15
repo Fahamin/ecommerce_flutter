@@ -9,3 +9,5 @@ FutureProvider.family<List<ProductModelByCategory>,int>((ref, cat) async {
   //NewsRepository newsRepository = NewsRepository();
   return ProductRepository().getProductByCategory(cat);
 });
+
+
