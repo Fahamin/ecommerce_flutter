@@ -16,8 +16,6 @@ final authProvider = StateNotifierProvider<AuthNotifier, AuthModel>((ref) {
   return AuthNotifier();
 });
 
-
-
 class AuthNotifier extends StateNotifier<AuthModel> {
   AuthNotifier() : super(AuthModel());
 

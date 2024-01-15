@@ -68,8 +68,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                         var loginModel = LoginModel(
                             email: emailcontroller.text,
                             password: passwordcontroller.text);
-                        ref
-                            .read(authProvider.notifier)
+                        ref.read(authProvider.notifier)
                             .userSignin(loginModel, context);
 
                         emailcontroller.text = "";
